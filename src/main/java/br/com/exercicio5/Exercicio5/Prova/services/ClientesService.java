@@ -31,6 +31,9 @@ public class ClientesService {
 
     // INSERT CLIENTES
     public Clientes saveClientes(Clientes dto){
+//        Clientes obj = new Clientes();
+//        obj.setTarefas(dto.getTarefas());
+//        obj.setNome(dto.getNome());
         repository.save(dto);
         return dto;
     }

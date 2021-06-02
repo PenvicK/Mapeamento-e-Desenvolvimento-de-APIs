@@ -30,16 +30,17 @@ public class TarefasService {
     }
 
     // INSERT TAREFAS
-    public Tarefas saveTarefas(Tarefas dto){
-        repository.save(dto);
-        return dto;
+    public TarefasDTO saveTarefas(TarefasDTO entity){
+        Tarefas tarefas = new Tarefas();
+        tarefas.setTarefa(entity.getTarefa());
+        repository.save(tarefas);
+        return entity;
     }
 
     // EDIT TAREFAS
     public Tarefas editTarefas(Long id, Tarefas entity){
         Tarefas obj = findById(id);
         obj.setTarefa(entity.getTarefa());
-        obj.setCliente(entity.getCliente());
 
         repository.save(obj);
         return obj;

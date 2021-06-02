@@ -1,5 +1,6 @@
 package br.com.exercicio5.Exercicio5.Prova.dto;
 
+import br.com.exercicio5.Exercicio5.Prova.entities.Clientes;
 import br.com.exercicio5.Exercicio5.Prova.entities.Tarefas;
 import lombok.*;
 import java.io.Serializable;
@@ -12,11 +13,11 @@ public class TarefasDTO implements Serializable {
 
     private Long id;
     private String tarefa;
-    private ClientesDTO clienteDTO;
+    private Clientes clienteDTO;
 
     public TarefasDTO(Tarefas entity){
         id = entity.getId();
         tarefa = entity.getTarefa();
-        clienteDTO = new ClientesDTO(entity.getCliente());
+        clienteDTO = entity.getCliente();
     }
 }

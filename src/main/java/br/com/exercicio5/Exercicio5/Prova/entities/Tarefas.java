@@ -19,4 +19,10 @@ public class Tarefas {
     @ManyToOne
     @JoinColumn(name = "cliente_id")
     private Clientes cliente;
+
+    public Tarefas(Tarefas entity) {
+        id = entity.getId();
+        tarefa = entity.getTarefa();
+        cliente = entity.getCliente();
+    }
 }

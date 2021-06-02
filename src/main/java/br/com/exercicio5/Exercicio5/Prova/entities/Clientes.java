@@ -5,6 +5,7 @@ import org.hibernate.annotations.Cascade;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Data
 @AllArgsConstructor
@@ -22,4 +23,10 @@ public class Clientes {
     @OneToMany(mappedBy = "cliente")
     @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private List<Tarefas> tarefas = new ArrayList<>();
+
+    public Clientes(Clientes entity){
+        id = entity.getId();
+        nome = entity.getNome();
+        tarefas = entity.getTarefas().stream().map(tarefa -> new Tarefas(tarefa)).collect(Collectors.toList());
+    }
 }
